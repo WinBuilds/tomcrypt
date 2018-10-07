@@ -94,3 +94,9 @@ coverage*.info
 cov-int/
 .coverity_*
 libtomcrypt.lzma
+
+*.lnk
+*.url
+*.VC.db
+*.VC.opendb
+.vs
