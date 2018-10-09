@@ -15,19 +15,19 @@ typedef struct Hmac_state {
      unsigned char  *key;
 } hmac_state;
 
-int hmac_init(hmac_state *hmac, int hash, const unsigned char *key, unsigned long keylen);
-int hmac_process(hmac_state *hmac, const unsigned char *in, unsigned long inlen);
-int hmac_done(hmac_state *hmac, unsigned char *out, unsigned long *outlen);
-int hmac_test(void);
-int hmac_memory(int hash,
+LTC_EXPORT int hmac_init(hmac_state *hmac, int hash, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int hmac_process(hmac_state *hmac, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int hmac_done(hmac_state *hmac, unsigned char *out, unsigned long *outlen);
+LTC_EXPORT int hmac_test(void);
+LTC_EXPORT int hmac_memory(int hash,
                 const unsigned char *key, unsigned long keylen,
                 const unsigned char *in,  unsigned long inlen,
                       unsigned char *out, unsigned long *outlen);
-int hmac_memory_multi(int hash,
+LTC_EXPORT int hmac_memory_multi(int hash,
                 const unsigned char *key,  unsigned long keylen,
                       unsigned char *out,  unsigned long *outlen,
                 const unsigned char *in,   unsigned long inlen, ...);
-int hmac_file(int hash, const char *fname, const unsigned char *key,
+LTC_EXPORT int hmac_file(int hash, const char *fname, const unsigned char *key,
               unsigned long keylen,
               unsigned char *dst, unsigned long *dstlen);
 #endif
@@ -44,22 +44,22 @@ typedef struct {
    symmetric_key   key;
 } omac_state;
 
-int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned long keylen);
-int omac_process(omac_state *omac, const unsigned char *in, unsigned long inlen);
-int omac_done(omac_state *omac, unsigned char *out, unsigned long *outlen);
-int omac_memory(int cipher,
+LTC_EXPORT int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int omac_process(omac_state *omac, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int omac_done(omac_state *omac, unsigned char *out, unsigned long *outlen);
+LTC_EXPORT int omac_memory(int cipher,
                const unsigned char *key, unsigned long keylen,
                const unsigned char *in,  unsigned long inlen,
                      unsigned char *out, unsigned long *outlen);
-int omac_memory_multi(int cipher,
+LTC_EXPORT int omac_memory_multi(int cipher,
                 const unsigned char *key, unsigned long keylen,
                       unsigned char *out, unsigned long *outlen,
                 const unsigned char *in,  unsigned long inlen, ...);
-int omac_file(int cipher,
+LTC_EXPORT int omac_file(int cipher,
               const unsigned char *key, unsigned long keylen,
               const          char *filename,
                     unsigned char *out, unsigned long *outlen);
-int omac_test(void);
+LTC_EXPORT int omac_test(void);
 #endif /* LTC_OMAC */
 
 #ifdef LTC_PMAC
@@ -78,30 +78,30 @@ typedef struct {
                      buflen;                  /* number of bytes in the buffer */
 } pmac_state;
 
-int pmac_init(pmac_state *pmac, int cipher, const unsigned char *key, unsigned long keylen);
-int pmac_process(pmac_state *pmac, const unsigned char *in, unsigned long inlen);
-int pmac_done(pmac_state *pmac, unsigned char *out, unsigned long *outlen);
+LTC_EXPORT int pmac_init(pmac_state *pmac, int cipher, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int pmac_process(pmac_state *pmac, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int pmac_done(pmac_state *pmac, unsigned char *out, unsigned long *outlen);
 
-int pmac_memory(int cipher,
+LTC_EXPORT int pmac_memory(int cipher,
                const unsigned char *key, unsigned long keylen,
                const unsigned char *msg, unsigned long msglen,
                      unsigned char *out, unsigned long *outlen);
 
-int pmac_memory_multi(int cipher,
+LTC_EXPORT int pmac_memory_multi(int cipher,
                 const unsigned char *key, unsigned long keylen,
                       unsigned char *out, unsigned long *outlen,
                 const unsigned char *in, unsigned long inlen, ...);
 
-int pmac_file(int cipher,
+LTC_EXPORT int pmac_file(int cipher,
              const unsigned char *key, unsigned long keylen,
              const          char *filename,
                    unsigned char *out, unsigned long *outlen);
 
-int pmac_test(void);
+LTC_EXPORT int pmac_test(void);
 
 /* internal functions */
-int pmac_ntz(unsigned long x);
-void pmac_shift_xor(pmac_state *pmac);
+LTC_EXPORT int pmac_ntz(unsigned long x);
+LTC_EXPORT void pmac_shift_xor(pmac_state *pmac);
 
 #endif /* PMAC */
 
@@ -115,35 +115,35 @@ typedef struct {
    int final;
 } poly1305_state;
 
-int poly1305_init(poly1305_state *st, const unsigned char *key, unsigned long keylen);
-int poly1305_process(poly1305_state *st, const unsigned char *in, unsigned long inlen);
-int poly1305_done(poly1305_state *st, unsigned char *mac, unsigned long *maclen);
-int poly1305_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
-int poly1305_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
-int poly1305_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
-int poly1305_test(void);
+LTC_EXPORT int poly1305_init(poly1305_state *st, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int poly1305_process(poly1305_state *st, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int poly1305_done(poly1305_state *st, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int poly1305_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int poly1305_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
+LTC_EXPORT int poly1305_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int poly1305_test(void);
 #endif /* LTC_POLY1305 */
 
 #ifdef LTC_BLAKE2SMAC
 typedef hash_state blake2smac_state;
-int blake2smac_init(blake2smac_state *st, unsigned long outlen, const unsigned char *key, unsigned long keylen);
-int blake2smac_process(blake2smac_state *st, const unsigned char *in, unsigned long inlen);
-int blake2smac_done(blake2smac_state *st, unsigned char *mac, unsigned long *maclen);
-int blake2smac_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
-int blake2smac_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
-int blake2smac_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
-int blake2smac_test(void);
+LTC_EXPORT int blake2smac_init(blake2smac_state *st, unsigned long outlen, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int blake2smac_process(blake2smac_state *st, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int blake2smac_done(blake2smac_state *st, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2smac_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2smac_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
+LTC_EXPORT int blake2smac_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2smac_test(void);
 #endif /* LTC_BLAKE2SMAC */
 
 #ifdef LTC_BLAKE2BMAC
 typedef hash_state blake2bmac_state;
-int blake2bmac_init(blake2bmac_state *st, unsigned long outlen, const unsigned char *key, unsigned long keylen);
-int blake2bmac_process(blake2bmac_state *st, const unsigned char *in, unsigned long inlen);
-int blake2bmac_done(blake2bmac_state *st, unsigned char *mac, unsigned long *maclen);
-int blake2bmac_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
-int blake2bmac_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
-int blake2bmac_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
-int blake2bmac_test(void);
+LTC_EXPORT int blake2bmac_init(blake2bmac_state *st, unsigned long outlen, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int blake2bmac_process(blake2bmac_state *st, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int blake2bmac_done(blake2bmac_state *st, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2bmac_memory(const unsigned char *key, unsigned long keylen, const unsigned char *in, unsigned long inlen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2bmac_memory_multi(const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen, const unsigned char *in,  unsigned long inlen, ...);
+LTC_EXPORT int blake2bmac_file(const char *fname, const unsigned char *key, unsigned long keylen, unsigned char *mac, unsigned long *maclen);
+LTC_EXPORT int blake2bmac_test(void);
 #endif /* LTC_BLAKE2BMAC */
 
 #ifdef LTC_EAX_MODE
@@ -158,16 +158,16 @@ typedef struct {
    omac_state    headeromac, ctomac;
 } eax_state;
 
-int eax_init(eax_state *eax, int cipher, const unsigned char *key, unsigned long keylen,
+LTC_EXPORT int eax_init(eax_state *eax, int cipher, const unsigned char *key, unsigned long keylen,
              const unsigned char *nonce, unsigned long noncelen,
              const unsigned char *header, unsigned long headerlen);
 
-int eax_encrypt(eax_state *eax, const unsigned char *pt, unsigned char *ct, unsigned long length);
-int eax_decrypt(eax_state *eax, const unsigned char *ct, unsigned char *pt, unsigned long length);
-int eax_addheader(eax_state *eax, const unsigned char *header, unsigned long length);
-int eax_done(eax_state *eax, unsigned char *tag, unsigned long *taglen);
+LTC_EXPORT int eax_encrypt(eax_state *eax, const unsigned char *pt, unsigned char *ct, unsigned long length);
+LTC_EXPORT int eax_decrypt(eax_state *eax, const unsigned char *ct, unsigned char *pt, unsigned long length);
+LTC_EXPORT int eax_addheader(eax_state *eax, const unsigned char *header, unsigned long length);
+LTC_EXPORT int eax_done(eax_state *eax, unsigned char *tag, unsigned long *taglen);
 
-int eax_encrypt_authenticate_memory(int cipher,
+LTC_EXPORT int eax_encrypt_authenticate_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,  unsigned long noncelen,
     const unsigned char *header, unsigned long headerlen,
@@ -175,7 +175,7 @@ int eax_encrypt_authenticate_memory(int cipher,
           unsigned char *ct,
           unsigned char *tag,    unsigned long *taglen);
 
-int eax_decrypt_verify_memory(int cipher,
+LTC_EXPORT int eax_decrypt_verify_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,  unsigned long noncelen,
     const unsigned char *header, unsigned long headerlen,
@@ -184,7 +184,7 @@ int eax_decrypt_verify_memory(int cipher,
           unsigned char *tag,    unsigned long taglen,
           int           *stat);
 
- int eax_test(void);
+ LTC_EXPORT int eax_test(void);
 #endif /* EAX MODE */
 
 #ifdef LTC_OCB_MODE
@@ -202,30 +202,30 @@ typedef struct {
                      block_len;               /* length of block */
 } ocb_state;
 
-int ocb_init(ocb_state *ocb, int cipher,
+LTC_EXPORT int ocb_init(ocb_state *ocb, int cipher,
              const unsigned char *key, unsigned long keylen, const unsigned char *nonce);
 
-int ocb_encrypt(ocb_state *ocb, const unsigned char *pt, unsigned char *ct);
-int ocb_decrypt(ocb_state *ocb, const unsigned char *ct, unsigned char *pt);
+LTC_EXPORT int ocb_encrypt(ocb_state *ocb, const unsigned char *pt, unsigned char *ct);
+LTC_EXPORT int ocb_decrypt(ocb_state *ocb, const unsigned char *ct, unsigned char *pt);
 
-int ocb_done_encrypt(ocb_state *ocb,
+LTC_EXPORT int ocb_done_encrypt(ocb_state *ocb,
                      const unsigned char *pt,  unsigned long ptlen,
                            unsigned char *ct,
                            unsigned char *tag, unsigned long *taglen);
 
-int ocb_done_decrypt(ocb_state *ocb,
+LTC_EXPORT int ocb_done_decrypt(ocb_state *ocb,
                      const unsigned char *ct,  unsigned long ctlen,
                            unsigned char *pt,
                      const unsigned char *tag, unsigned long taglen, int *stat);
 
-int ocb_encrypt_authenticate_memory(int cipher,
+LTC_EXPORT int ocb_encrypt_authenticate_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,
     const unsigned char *pt,     unsigned long ptlen,
           unsigned char *ct,
           unsigned char *tag,    unsigned long *taglen);
 
-int ocb_decrypt_verify_memory(int cipher,
+LTC_EXPORT int ocb_decrypt_verify_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,
     const unsigned char *ct,     unsigned long ctlen,
@@ -233,12 +233,12 @@ int ocb_decrypt_verify_memory(int cipher,
     const unsigned char *tag,    unsigned long taglen,
           int           *stat);
 
-int ocb_test(void);
+LTC_EXPORT int ocb_test(void);
 
 /* internal functions */
-void ocb_shift_xor(ocb_state *ocb, unsigned char *Z);
-int ocb_ntz(unsigned long x);
-int s_ocb_done(ocb_state *ocb, const unsigned char *pt, unsigned long ptlen,
+LTC_EXPORT void ocb_shift_xor(ocb_state *ocb, unsigned char *Z);
+LTC_EXPORT int ocb_ntz(unsigned long x);
+LTC_EXPORT int s_ocb_done(ocb_state *ocb, const unsigned char *pt, unsigned long ptlen,
                unsigned char *ct, unsigned char *tag, unsigned long *taglen, int mode);
 
 #endif /* LTC_OCB_MODE */
@@ -267,19 +267,19 @@ typedef struct {
                      block_len;               /* length of block */
 } ocb3_state;
 
-int ocb3_init(ocb3_state *ocb, int cipher,
+LTC_EXPORT int ocb3_init(ocb3_state *ocb, int cipher,
              const unsigned char *key, unsigned long keylen,
              const unsigned char *nonce, unsigned long noncelen,
              unsigned long taglen);
 
-int ocb3_encrypt(ocb3_state *ocb, const unsigned char *pt, unsigned long ptlen, unsigned char *ct);
-int ocb3_decrypt(ocb3_state *ocb, const unsigned char *ct, unsigned long ctlen, unsigned char *pt);
-int ocb3_encrypt_last(ocb3_state *ocb, const unsigned char *pt, unsigned long ptlen, unsigned char *ct);
-int ocb3_decrypt_last(ocb3_state *ocb, const unsigned char *ct, unsigned long ctlen, unsigned char *pt);
-int ocb3_add_aad(ocb3_state *ocb, const unsigned char *aad, unsigned long aadlen);
-int ocb3_done(ocb3_state *ocb, unsigned char *tag, unsigned long *taglen);
+LTC_EXPORT int ocb3_encrypt(ocb3_state *ocb, const unsigned char *pt, unsigned long ptlen, unsigned char *ct);
+LTC_EXPORT int ocb3_decrypt(ocb3_state *ocb, const unsigned char *ct, unsigned long ctlen, unsigned char *pt);
+LTC_EXPORT int ocb3_encrypt_last(ocb3_state *ocb, const unsigned char *pt, unsigned long ptlen, unsigned char *ct);
+LTC_EXPORT int ocb3_decrypt_last(ocb3_state *ocb, const unsigned char *ct, unsigned long ctlen, unsigned char *pt);
+LTC_EXPORT int ocb3_add_aad(ocb3_state *ocb, const unsigned char *aad, unsigned long aadlen);
+LTC_EXPORT int ocb3_done(ocb3_state *ocb, unsigned char *tag, unsigned long *taglen);
 
-int ocb3_encrypt_authenticate_memory(int cipher,
+LTC_EXPORT int ocb3_encrypt_authenticate_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,  unsigned long noncelen,
     const unsigned char *adata,  unsigned long adatalen,
@@ -287,7 +287,7 @@ int ocb3_encrypt_authenticate_memory(int cipher,
           unsigned char *ct,
           unsigned char *tag,    unsigned long *taglen);
 
-int ocb3_decrypt_verify_memory(int cipher,
+LTC_EXPORT int ocb3_decrypt_verify_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     const unsigned char *nonce,  unsigned long noncelen,
     const unsigned char *adata,  unsigned long adatalen,
@@ -296,12 +296,12 @@ int ocb3_decrypt_verify_memory(int cipher,
     const unsigned char *tag,    unsigned long taglen,
           int           *stat);
 
-int ocb3_test(void);
+LTC_EXPORT int ocb3_test(void);
 
 #ifdef LTC_SOURCE
 /* internal helper functions */
-int ocb3_int_ntz(unsigned long x);
-void ocb3_int_xor_blocks(unsigned char *out, const unsigned char *block_a, const unsigned char *block_b, unsigned long block_len);
+LTC_EXPORT int ocb3_int_ntz(unsigned long x);
+LTC_EXPORT void ocb3_int_xor_blocks(unsigned char *out, const unsigned char *block_a, const unsigned char *block_b, unsigned long block_len);
 #endif /* LTC_SOURCE */
 
 #endif /* LTC_OCB3_MODE */
@@ -330,26 +330,26 @@ typedef struct {
                        CTRlen;
 } ccm_state;
 
-int ccm_init(ccm_state *ccm, int cipher,
+LTC_EXPORT int ccm_init(ccm_state *ccm, int cipher,
              const unsigned char *key, int keylen, int ptlen, int taglen, int aad_len);
 
-int ccm_reset(ccm_state *ccm);
+LTC_EXPORT int ccm_reset(ccm_state *ccm);
 
-int ccm_add_nonce(ccm_state *ccm,
+LTC_EXPORT int ccm_add_nonce(ccm_state *ccm,
                   const unsigned char *nonce,     unsigned long noncelen);
 
-int ccm_add_aad(ccm_state *ccm,
+LTC_EXPORT int ccm_add_aad(ccm_state *ccm,
                 const unsigned char *adata,  unsigned long adatalen);
 
-int ccm_process(ccm_state *ccm,
+LTC_EXPORT int ccm_process(ccm_state *ccm,
                 unsigned char *pt,     unsigned long ptlen,
                 unsigned char *ct,
                 int direction);
 
-int ccm_done(ccm_state *ccm,
+LTC_EXPORT int ccm_done(ccm_state *ccm,
              unsigned char *tag,    unsigned long *taglen);
 
-int ccm_memory(int cipher,
+LTC_EXPORT int ccm_memory(int cipher,
     const unsigned char *key,    unsigned long keylen,
     symmetric_key       *uskey,
     const unsigned char *nonce,  unsigned long noncelen,
@@ -359,12 +359,12 @@ int ccm_memory(int cipher,
           unsigned char *tag,    unsigned long *taglen,
                     int  direction);
 
-int ccm_test(void);
+LTC_EXPORT int ccm_test(void);
 
 #endif /* LTC_CCM_MODE */
 
 #if defined(LRW_MODE) || defined(LTC_GCM_MODE)
-void gcm_gf_mult(const unsigned char *a, const unsigned char *b, unsigned char *c);
+LTC_EXPORT void gcm_gf_mult(const unsigned char *a, const unsigned char *b, unsigned char *c);
 #endif
 
 
@@ -407,28 +407,28 @@ __attribute__ ((aligned (16)))
 #endif
 } gcm_state;
 
-void gcm_mult_h(gcm_state *gcm, unsigned char *I);
+LTC_EXPORT void gcm_mult_h(gcm_state *gcm, unsigned char *I);
 
-int gcm_init(gcm_state *gcm, int cipher,
+LTC_EXPORT int gcm_init(gcm_state *gcm, int cipher,
              const unsigned char *key, int keylen);
 
-int gcm_reset(gcm_state *gcm);
+LTC_EXPORT int gcm_reset(gcm_state *gcm);
 
-int gcm_add_iv(gcm_state *gcm,
+LTC_EXPORT int gcm_add_iv(gcm_state *gcm,
                const unsigned char *IV,     unsigned long IVlen);
 
-int gcm_add_aad(gcm_state *gcm,
+LTC_EXPORT int gcm_add_aad(gcm_state *gcm,
                const unsigned char *adata,  unsigned long adatalen);
 
-int gcm_process(gcm_state *gcm,
+LTC_EXPORT int gcm_process(gcm_state *gcm,
                      unsigned char *pt,     unsigned long ptlen,
                      unsigned char *ct,
                      int direction);
 
-int gcm_done(gcm_state *gcm,
+LTC_EXPORT int gcm_done(gcm_state *gcm,
                      unsigned char *tag,    unsigned long *taglen);
 
-int gcm_memory(      int           cipher,
+LTC_EXPORT int gcm_memory(      int           cipher,
                const unsigned char *key,    unsigned long keylen,
                const unsigned char *IV,     unsigned long IVlen,
                const unsigned char *adata,  unsigned long adatalen,
@@ -436,7 +436,7 @@ int gcm_memory(      int           cipher,
                      unsigned char *ct,
                      unsigned char *tag,    unsigned long *taglen,
                                int direction);
-int gcm_test(void);
+LTC_EXPORT int gcm_test(void);
 
 #endif /* LTC_GCM_MODE */
 
@@ -449,12 +449,12 @@ typedef struct pelican_state
     int           buflen;
 } pelican_state;
 
-int pelican_init(pelican_state *pelmac, const unsigned char *key, unsigned long keylen);
-int pelican_process(pelican_state *pelmac, const unsigned char *in, unsigned long inlen);
-int pelican_done(pelican_state *pelmac, unsigned char *out);
-int pelican_test(void);
+LTC_EXPORT int pelican_init(pelican_state *pelmac, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int pelican_process(pelican_state *pelmac, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int pelican_done(pelican_state *pelmac, unsigned char *out);
+LTC_EXPORT int pelican_test(void);
 
-int pelican_memory(const unsigned char *key, unsigned long keylen,
+LTC_EXPORT int pelican_memory(const unsigned char *key, unsigned long keylen,
                    const unsigned char *in, unsigned long inlen,
                          unsigned char *out);
 
@@ -476,22 +476,22 @@ typedef struct {
                  blocksize;
 } xcbc_state;
 
-int xcbc_init(xcbc_state *xcbc, int cipher, const unsigned char *key, unsigned long keylen);
-int xcbc_process(xcbc_state *xcbc, const unsigned char *in, unsigned long inlen);
-int xcbc_done(xcbc_state *xcbc, unsigned char *out, unsigned long *outlen);
-int xcbc_memory(int cipher,
+LTC_EXPORT int xcbc_init(xcbc_state *xcbc, int cipher, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int xcbc_process(xcbc_state *xcbc, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int xcbc_done(xcbc_state *xcbc, unsigned char *out, unsigned long *outlen);
+LTC_EXPORT int xcbc_memory(int cipher,
                const unsigned char *key, unsigned long keylen,
                const unsigned char *in,  unsigned long inlen,
                      unsigned char *out, unsigned long *outlen);
-int xcbc_memory_multi(int cipher,
+LTC_EXPORT int xcbc_memory_multi(int cipher,
                 const unsigned char *key, unsigned long keylen,
                       unsigned char *out, unsigned long *outlen,
                 const unsigned char *in,  unsigned long inlen, ...);
-int xcbc_file(int cipher,
+LTC_EXPORT int xcbc_file(int cipher,
               const unsigned char *key, unsigned long keylen,
               const          char *filename,
                     unsigned char *out, unsigned long *outlen);
-int xcbc_test(void);
+LTC_EXPORT int xcbc_test(void);
 
 #endif
 
@@ -510,22 +510,22 @@ typedef struct {
                  blocksize;
 } f9_state;
 
-int f9_init(f9_state *f9, int cipher, const unsigned char *key, unsigned long keylen);
-int f9_process(f9_state *f9, const unsigned char *in, unsigned long inlen);
-int f9_done(f9_state *f9, unsigned char *out, unsigned long *outlen);
-int f9_memory(int cipher,
+LTC_EXPORT int f9_init(f9_state *f9, int cipher, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int f9_process(f9_state *f9, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int f9_done(f9_state *f9, unsigned char *out, unsigned long *outlen);
+LTC_EXPORT int f9_memory(int cipher,
                const unsigned char *key, unsigned long keylen,
                const unsigned char *in,  unsigned long inlen,
                      unsigned char *out, unsigned long *outlen);
-int f9_memory_multi(int cipher,
+LTC_EXPORT int f9_memory_multi(int cipher,
                 const unsigned char *key, unsigned long keylen,
                       unsigned char *out, unsigned long *outlen,
                 const unsigned char *in,  unsigned long inlen, ...);
-int f9_file(int cipher,
+LTC_EXPORT int f9_file(int cipher,
               const unsigned char *key, unsigned long keylen,
               const          char *filename,
                     unsigned char *out, unsigned long *outlen);
-int f9_test(void);
+LTC_EXPORT int f9_test(void);
 
 #endif
 
@@ -542,21 +542,21 @@ typedef struct {
 #define CHACHA20POLY1305_ENCRYPT LTC_ENCRYPT
 #define CHACHA20POLY1305_DECRYPT LTC_DECRYPT
 
-int chacha20poly1305_init(chacha20poly1305_state *st, const unsigned char *key, unsigned long keylen);
-int chacha20poly1305_setiv(chacha20poly1305_state *st, const unsigned char *iv, unsigned long ivlen);
-int chacha20poly1305_setiv_rfc7905(chacha20poly1305_state *st, const unsigned char *iv, unsigned long ivlen, ulong64 sequence_number);
-int chacha20poly1305_add_aad(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen);
-int chacha20poly1305_encrypt(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
-int chacha20poly1305_decrypt(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
-int chacha20poly1305_done(chacha20poly1305_state *st, unsigned char *tag, unsigned long *taglen);
-int chacha20poly1305_memory(const unsigned char *key, unsigned long keylen,
+LTC_EXPORT int chacha20poly1305_init(chacha20poly1305_state *st, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int chacha20poly1305_setiv(chacha20poly1305_state *st, const unsigned char *iv, unsigned long ivlen);
+LTC_EXPORT int chacha20poly1305_setiv_rfc7905(chacha20poly1305_state *st, const unsigned char *iv, unsigned long ivlen, ulong64 sequence_number);
+LTC_EXPORT int chacha20poly1305_add_aad(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen);
+LTC_EXPORT int chacha20poly1305_encrypt(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
+LTC_EXPORT int chacha20poly1305_decrypt(chacha20poly1305_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
+LTC_EXPORT int chacha20poly1305_done(chacha20poly1305_state *st, unsigned char *tag, unsigned long *taglen);
+LTC_EXPORT int chacha20poly1305_memory(const unsigned char *key, unsigned long keylen,
                             const unsigned char *iv,  unsigned long ivlen,
                             const unsigned char *aad, unsigned long aadlen,
                             const unsigned char *in,  unsigned long inlen,
                                   unsigned char *out,
                                   unsigned char *tag, unsigned long *taglen,
                             int direction);
-int chacha20poly1305_test(void);
+LTC_EXPORT int chacha20poly1305_test(void);
 
 #endif /* LTC_CHACHA20POLY1305_MODE */
 

@@ -134,92 +134,92 @@ extern struct ltc_prng_descriptor {
 } prng_descriptor[];
 
 #ifdef LTC_YARROW
-int yarrow_start(prng_state *prng);
-int yarrow_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int yarrow_ready(prng_state *prng);
-unsigned long yarrow_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int yarrow_done(prng_state *prng);
-int  yarrow_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  yarrow_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  yarrow_test(void);
+LTC_EXPORT int yarrow_start(prng_state *prng);
+LTC_EXPORT int yarrow_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int yarrow_ready(prng_state *prng);
+LTC_EXPORT unsigned long yarrow_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int yarrow_done(prng_state *prng);
+LTC_EXPORT int  yarrow_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  yarrow_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  yarrow_test(void);
 extern const struct ltc_prng_descriptor yarrow_desc;
 #endif
 
 #ifdef LTC_FORTUNA
-int fortuna_start(prng_state *prng);
-int fortuna_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int fortuna_ready(prng_state *prng);
-unsigned long fortuna_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int fortuna_done(prng_state *prng);
-int  fortuna_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  fortuna_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  fortuna_test(void);
+LTC_EXPORT int fortuna_start(prng_state *prng);
+LTC_EXPORT int fortuna_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int fortuna_ready(prng_state *prng);
+LTC_EXPORT unsigned long fortuna_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int fortuna_done(prng_state *prng);
+LTC_EXPORT int  fortuna_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  fortuna_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  fortuna_test(void);
 extern const struct ltc_prng_descriptor fortuna_desc;
 #endif
 
 #ifdef LTC_RC4
-int rc4_start(prng_state *prng);
-int rc4_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int rc4_ready(prng_state *prng);
-unsigned long rc4_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int  rc4_done(prng_state *prng);
-int  rc4_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  rc4_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  rc4_test(void);
+LTC_EXPORT int rc4_start(prng_state *prng);
+LTC_EXPORT int rc4_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int rc4_ready(prng_state *prng);
+LTC_EXPORT unsigned long rc4_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int  rc4_done(prng_state *prng);
+LTC_EXPORT int  rc4_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  rc4_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  rc4_test(void);
 extern const struct ltc_prng_descriptor rc4_desc;
 #endif
 
 #ifdef LTC_CHACHA20_PRNG
-int chacha20_prng_start(prng_state *prng);
-int chacha20_prng_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int chacha20_prng_ready(prng_state *prng);
-unsigned long chacha20_prng_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int  chacha20_prng_done(prng_state *prng);
-int  chacha20_prng_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  chacha20_prng_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  chacha20_prng_test(void);
+LTC_EXPORT int chacha20_prng_start(prng_state *prng);
+LTC_EXPORT int chacha20_prng_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int chacha20_prng_ready(prng_state *prng);
+LTC_EXPORT unsigned long chacha20_prng_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int  chacha20_prng_done(prng_state *prng);
+LTC_EXPORT int  chacha20_prng_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  chacha20_prng_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  chacha20_prng_test(void);
 extern const struct ltc_prng_descriptor chacha20_prng_desc;
 #endif
 
 #ifdef LTC_SPRNG
-int sprng_start(prng_state *prng);
-int sprng_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int sprng_ready(prng_state *prng);
-unsigned long sprng_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int sprng_done(prng_state *prng);
-int  sprng_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  sprng_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  sprng_test(void);
+LTC_EXPORT int sprng_start(prng_state *prng);
+LTC_EXPORT int sprng_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int sprng_ready(prng_state *prng);
+LTC_EXPORT unsigned long sprng_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int sprng_done(prng_state *prng);
+LTC_EXPORT int  sprng_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  sprng_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  sprng_test(void);
 extern const struct ltc_prng_descriptor sprng_desc;
 #endif
 
 #ifdef LTC_SOBER128
-int sober128_start(prng_state *prng);
-int sober128_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int sober128_ready(prng_state *prng);
-unsigned long sober128_read(unsigned char *out, unsigned long outlen, prng_state *prng);
-int sober128_done(prng_state *prng);
-int  sober128_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
-int  sober128_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
-int  sober128_test(void);
+LTC_EXPORT int sober128_start(prng_state *prng);
+LTC_EXPORT int sober128_add_entropy(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int sober128_ready(prng_state *prng);
+LTC_EXPORT unsigned long sober128_read(unsigned char *out, unsigned long outlen, prng_state *prng);
+LTC_EXPORT int sober128_done(prng_state *prng);
+LTC_EXPORT int  sober128_export(unsigned char *out, unsigned long *outlen, prng_state *prng);
+LTC_EXPORT int  sober128_import(const unsigned char *in, unsigned long inlen, prng_state *prng);
+LTC_EXPORT int  sober128_test(void);
 extern const struct ltc_prng_descriptor sober128_desc;
 #endif
 
-int find_prng(const char *name);
-int register_prng(const struct ltc_prng_descriptor *prng);
-int unregister_prng(const struct ltc_prng_descriptor *prng);
-int register_all_prngs(void);
-int prng_is_valid(int idx);
+LTC_EXPORT int find_prng(const char *name);
+LTC_EXPORT int register_prng(const struct ltc_prng_descriptor *prng);
+LTC_EXPORT int unregister_prng(const struct ltc_prng_descriptor *prng);
+LTC_EXPORT int register_all_prngs(void);
+LTC_EXPORT int prng_is_valid(int idx);
 LTC_MUTEX_PROTO(ltc_prng_mutex)
 
 /* Slow RNG you **might** be able to use to seed a PRNG with.  Be careful as this
  * might not work on all platforms as planned
  */
-unsigned long rng_get_bytes(unsigned char *out,
+LTC_EXPORT unsigned long rng_get_bytes(unsigned char *out,
                             unsigned long outlen,
                             void (*callback)(void));
 
-int rng_make_prng(int bits, int wprng, prng_state *prng, void (*callback)(void));
+LTC_EXPORT int rng_make_prng(int bits, int wprng, prng_state *prng, void (*callback)(void));
 
 #ifdef LTC_PRNG_ENABLE_LTC_RNG
 extern unsigned long (*ltc_rng)(unsigned char *out, unsigned long outlen,

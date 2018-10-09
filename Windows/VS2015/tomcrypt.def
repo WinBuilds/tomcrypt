@@ -1,0 +1,4 @@
+EXPORTS
+      gcry_check_version  @1
+     
+

@@ -31,7 +31,7 @@
    #define LTC_MILLER_RABIN_REPS    40
 #endif
 
-int radix_to_bin(const void *in, int radix, void *out, unsigned long *len);
+LTC_EXPORT int radix_to_bin(const void *in, int radix, void *out, unsigned long *len);
 
 /** math descriptor */
 typedef struct {
@@ -492,9 +492,9 @@ typedef struct {
 
 extern ltc_math_descriptor ltc_mp;
 
-int ltc_init_multi(void **a, ...);
-void ltc_deinit_multi(void *a, ...);
-void ltc_cleanup_multi(void **a, ...);
+LTC_EXPORT int ltc_init_multi(void **a, ...);
+LTC_EXPORT void ltc_deinit_multi(void *a, ...);
+LTC_EXPORT void ltc_cleanup_multi(void **a, ...);
 
 #ifdef LTM_DESC
 extern const ltc_math_descriptor ltm_desc;

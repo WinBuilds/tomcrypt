@@ -595,69 +595,69 @@ extern struct ltc_cipher_descriptor {
 } cipher_descriptor[];
 
 #ifdef LTC_BLOWFISH
-int blowfish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int blowfish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int blowfish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int blowfish_test(void);
-void blowfish_done(symmetric_key *skey);
-int blowfish_keysize(int *keysize);
+LTC_EXPORT int blowfish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int blowfish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int blowfish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int blowfish_test(void);
+LTC_EXPORT void blowfish_done(symmetric_key *skey);
+LTC_EXPORT int blowfish_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor blowfish_desc;
 #endif
 
 #ifdef LTC_RC5
-int rc5_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int rc5_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int rc5_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int rc5_test(void);
-void rc5_done(symmetric_key *skey);
-int rc5_keysize(int *keysize);
+LTC_EXPORT int rc5_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rc5_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int rc5_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int rc5_test(void);
+LTC_EXPORT void rc5_done(symmetric_key *skey);
+LTC_EXPORT int rc5_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor rc5_desc;
 #endif
 
 #ifdef LTC_RC6
-int rc6_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int rc6_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int rc6_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int rc6_test(void);
-void rc6_done(symmetric_key *skey);
-int rc6_keysize(int *keysize);
+LTC_EXPORT int rc6_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rc6_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int rc6_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int rc6_test(void);
+LTC_EXPORT void rc6_done(symmetric_key *skey);
+LTC_EXPORT int rc6_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor rc6_desc;
 #endif
 
 #ifdef LTC_RC2
-int rc2_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int rc2_setup_ex(const unsigned char *key, int keylen, int bits, int num_rounds, symmetric_key *skey);
-int rc2_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int rc2_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int rc2_test(void);
-void rc2_done(symmetric_key *skey);
-int rc2_keysize(int *keysize);
+LTC_EXPORT int rc2_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rc2_setup_ex(const unsigned char *key, int keylen, int bits, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rc2_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int rc2_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int rc2_test(void);
+LTC_EXPORT void rc2_done(symmetric_key *skey);
+LTC_EXPORT int rc2_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor rc2_desc;
 #endif
 
 #ifdef LTC_SAFERP
-int saferp_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int saferp_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int saferp_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int saferp_test(void);
-void saferp_done(symmetric_key *skey);
-int saferp_keysize(int *keysize);
+LTC_EXPORT int saferp_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int saferp_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int saferp_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int saferp_test(void);
+LTC_EXPORT void saferp_done(symmetric_key *skey);
+LTC_EXPORT int saferp_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor saferp_desc;
 #endif
 
 #ifdef LTC_SAFER
-int safer_k64_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int safer_sk64_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int safer_k128_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int safer_sk128_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int safer_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *key);
-int safer_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *key);
-int safer_k64_test(void);
-int safer_sk64_test(void);
-int safer_sk128_test(void);
-void safer_done(symmetric_key *skey);
-int safer_64_keysize(int *keysize);
-int safer_128_keysize(int *keysize);
+LTC_EXPORT int safer_k64_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int safer_sk64_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int safer_k128_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int safer_sk128_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int safer_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *key);
+LTC_EXPORT int safer_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *key);
+LTC_EXPORT int safer_k64_test(void);
+LTC_EXPORT int safer_sk64_test(void);
+LTC_EXPORT int safer_sk128_test(void);
+LTC_EXPORT void safer_done(symmetric_key *skey);
+LTC_EXPORT int safer_64_keysize(int *keysize);
+LTC_EXPORT int safer_128_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor safer_k64_desc, safer_k128_desc, safer_sk64_desc, safer_sk128_desc;
 #endif
 
@@ -675,183 +675,183 @@ extern const struct ltc_cipher_descriptor safer_k64_desc, safer_k128_desc, safer
 #define aes_enc_ecb_encrypt     rijndael_enc_ecb_encrypt
 #define aes_enc_keysize         rijndael_enc_keysize
 
-int rijndael_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int rijndael_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int rijndael_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int rijndael_test(void);
-void rijndael_done(symmetric_key *skey);
-int rijndael_keysize(int *keysize);
-int rijndael_enc_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int rijndael_enc_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-void rijndael_enc_done(symmetric_key *skey);
-int rijndael_enc_keysize(int *keysize);
+LTC_EXPORT int rijndael_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rijndael_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int rijndael_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int rijndael_test(void);
+LTC_EXPORT void rijndael_done(symmetric_key *skey);
+LTC_EXPORT int rijndael_keysize(int *keysize);
+LTC_EXPORT int rijndael_enc_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int rijndael_enc_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT void rijndael_enc_done(symmetric_key *skey);
+LTC_EXPORT int rijndael_enc_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor rijndael_desc, aes_desc;
 extern const struct ltc_cipher_descriptor rijndael_enc_desc, aes_enc_desc;
 #endif
 
 #ifdef LTC_XTEA
-int xtea_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int xtea_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int xtea_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int xtea_test(void);
-void xtea_done(symmetric_key *skey);
-int xtea_keysize(int *keysize);
+LTC_EXPORT int xtea_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int xtea_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int xtea_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int xtea_test(void);
+LTC_EXPORT void xtea_done(symmetric_key *skey);
+LTC_EXPORT int xtea_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor xtea_desc;
 #endif
 
 #ifdef LTC_TWOFISH
-int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int twofish_test(void);
-void twofish_done(symmetric_key *skey);
-int twofish_keysize(int *keysize);
+LTC_EXPORT int twofish_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int twofish_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int twofish_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int twofish_test(void);
+LTC_EXPORT void twofish_done(symmetric_key *skey);
+LTC_EXPORT int twofish_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor twofish_desc;
 #endif
 
 #ifdef LTC_DES
-int des_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int des_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int des_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int des_test(void);
-void des_done(symmetric_key *skey);
-int des_keysize(int *keysize);
-int des3_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int des3_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int des3_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int des3_test(void);
-void des3_done(symmetric_key *skey);
-int des3_keysize(int *keysize);
+LTC_EXPORT int des_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int des_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int des_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int des_test(void);
+LTC_EXPORT void des_done(symmetric_key *skey);
+LTC_EXPORT int des_keysize(int *keysize);
+LTC_EXPORT int des3_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int des3_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int des3_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int des3_test(void);
+LTC_EXPORT void des3_done(symmetric_key *skey);
+LTC_EXPORT int des3_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor des_desc, des3_desc;
 #endif
 
 #ifdef LTC_CAST5
-int cast5_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int cast5_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int cast5_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int cast5_test(void);
-void cast5_done(symmetric_key *skey);
-int cast5_keysize(int *keysize);
+LTC_EXPORT int cast5_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int cast5_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int cast5_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int cast5_test(void);
+LTC_EXPORT void cast5_done(symmetric_key *skey);
+LTC_EXPORT int cast5_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor cast5_desc;
 #endif
 
 #ifdef LTC_NOEKEON
-int noekeon_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int noekeon_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int noekeon_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int noekeon_test(void);
-void noekeon_done(symmetric_key *skey);
-int noekeon_keysize(int *keysize);
+LTC_EXPORT int noekeon_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int noekeon_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int noekeon_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int noekeon_test(void);
+LTC_EXPORT void noekeon_done(symmetric_key *skey);
+LTC_EXPORT int noekeon_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor noekeon_desc;
 #endif
 
 #ifdef LTC_SKIPJACK
-int skipjack_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int skipjack_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int skipjack_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int skipjack_test(void);
-void skipjack_done(symmetric_key *skey);
-int skipjack_keysize(int *keysize);
+LTC_EXPORT int skipjack_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int skipjack_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int skipjack_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int skipjack_test(void);
+LTC_EXPORT void skipjack_done(symmetric_key *skey);
+LTC_EXPORT int skipjack_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor skipjack_desc;
 #endif
 
 #ifdef LTC_KHAZAD
-int khazad_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int khazad_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int khazad_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int khazad_test(void);
-void khazad_done(symmetric_key *skey);
-int khazad_keysize(int *keysize);
+LTC_EXPORT int khazad_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int khazad_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int khazad_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int khazad_test(void);
+LTC_EXPORT void khazad_done(symmetric_key *skey);
+LTC_EXPORT int khazad_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor khazad_desc;
 #endif
 
 #ifdef LTC_ANUBIS
-int anubis_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int anubis_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int anubis_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int anubis_test(void);
-void anubis_done(symmetric_key *skey);
-int anubis_keysize(int *keysize);
+LTC_EXPORT int anubis_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int anubis_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int anubis_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int anubis_test(void);
+LTC_EXPORT void anubis_done(symmetric_key *skey);
+LTC_EXPORT int anubis_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor anubis_desc;
 #endif
 
 #ifdef LTC_KSEED
-int kseed_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int kseed_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int kseed_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int kseed_test(void);
-void kseed_done(symmetric_key *skey);
-int kseed_keysize(int *keysize);
+LTC_EXPORT int kseed_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int kseed_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int kseed_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int kseed_test(void);
+LTC_EXPORT void kseed_done(symmetric_key *skey);
+LTC_EXPORT int kseed_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor kseed_desc;
 #endif
 
 #ifdef LTC_KASUMI
-int kasumi_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int kasumi_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int kasumi_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int kasumi_test(void);
-void kasumi_done(symmetric_key *skey);
-int kasumi_keysize(int *keysize);
+LTC_EXPORT int kasumi_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int kasumi_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int kasumi_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int kasumi_test(void);
+LTC_EXPORT void kasumi_done(symmetric_key *skey);
+LTC_EXPORT int kasumi_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor kasumi_desc;
 #endif
 
 
 #ifdef LTC_MULTI2
-int multi2_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int multi2_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int multi2_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int multi2_test(void);
-void multi2_done(symmetric_key *skey);
-int multi2_keysize(int *keysize);
+LTC_EXPORT int multi2_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int multi2_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int multi2_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int multi2_test(void);
+LTC_EXPORT void multi2_done(symmetric_key *skey);
+LTC_EXPORT int multi2_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor multi2_desc;
 #endif
 
 #ifdef LTC_CAMELLIA
-int camellia_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
-int camellia_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
-int camellia_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
-int camellia_test(void);
-void camellia_done(symmetric_key *skey);
-int camellia_keysize(int *keysize);
+LTC_EXPORT int camellia_setup(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey);
+LTC_EXPORT int camellia_ecb_encrypt(const unsigned char *pt, unsigned char *ct, symmetric_key *skey);
+LTC_EXPORT int camellia_ecb_decrypt(const unsigned char *ct, unsigned char *pt, symmetric_key *skey);
+LTC_EXPORT int camellia_test(void);
+LTC_EXPORT void camellia_done(symmetric_key *skey);
+LTC_EXPORT int camellia_keysize(int *keysize);
 extern const struct ltc_cipher_descriptor camellia_desc;
 #endif
 
 #ifdef LTC_ECB_MODE
-int ecb_start(int cipher, const unsigned char *key,
+LTC_EXPORT int ecb_start(int cipher, const unsigned char *key,
               int keylen, int num_rounds, symmetric_ECB *ecb);
-int ecb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_ECB *ecb);
-int ecb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_ECB *ecb);
-int ecb_done(symmetric_ECB *ecb);
+LTC_EXPORT int ecb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_ECB *ecb);
+LTC_EXPORT int ecb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_ECB *ecb);
+LTC_EXPORT int ecb_done(symmetric_ECB *ecb);
 #endif
 
 #ifdef LTC_CFB_MODE
-int cfb_start(int cipher, const unsigned char *IV, const unsigned char *key,
+LTC_EXPORT int cfb_start(int cipher, const unsigned char *IV, const unsigned char *key,
               int keylen, int num_rounds, symmetric_CFB *cfb);
-int cfb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CFB *cfb);
-int cfb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CFB *cfb);
-int cfb_getiv(unsigned char *IV, unsigned long *len, symmetric_CFB *cfb);
-int cfb_setiv(const unsigned char *IV, unsigned long len, symmetric_CFB *cfb);
-int cfb_done(symmetric_CFB *cfb);
+LTC_EXPORT int cfb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CFB *cfb);
+LTC_EXPORT int cfb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CFB *cfb);
+LTC_EXPORT int cfb_getiv(unsigned char *IV, unsigned long *len, symmetric_CFB *cfb);
+LTC_EXPORT int cfb_setiv(const unsigned char *IV, unsigned long len, symmetric_CFB *cfb);
+LTC_EXPORT int cfb_done(symmetric_CFB *cfb);
 #endif
 
 #ifdef LTC_OFB_MODE
-int ofb_start(int cipher, const unsigned char *IV, const unsigned char *key,
+LTC_EXPORT int ofb_start(int cipher, const unsigned char *IV, const unsigned char *key,
               int keylen, int num_rounds, symmetric_OFB *ofb);
-int ofb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_OFB *ofb);
-int ofb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_OFB *ofb);
-int ofb_getiv(unsigned char *IV, unsigned long *len, symmetric_OFB *ofb);
-int ofb_setiv(const unsigned char *IV, unsigned long len, symmetric_OFB *ofb);
-int ofb_done(symmetric_OFB *ofb);
+LTC_EXPORT int ofb_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_OFB *ofb);
+LTC_EXPORT int ofb_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_OFB *ofb);
+LTC_EXPORT int ofb_getiv(unsigned char *IV, unsigned long *len, symmetric_OFB *ofb);
+LTC_EXPORT int ofb_setiv(const unsigned char *IV, unsigned long len, symmetric_OFB *ofb);
+LTC_EXPORT int ofb_done(symmetric_OFB *ofb);
 #endif
 
 #ifdef LTC_CBC_MODE
-int cbc_start(int cipher, const unsigned char *IV, const unsigned char *key,
+LTC_EXPORT int cbc_start(int cipher, const unsigned char *IV, const unsigned char *key,
                int keylen, int num_rounds, symmetric_CBC *cbc);
-int cbc_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CBC *cbc);
-int cbc_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CBC *cbc);
-int cbc_getiv(unsigned char *IV, unsigned long *len, symmetric_CBC *cbc);
-int cbc_setiv(const unsigned char *IV, unsigned long len, symmetric_CBC *cbc);
-int cbc_done(symmetric_CBC *cbc);
+LTC_EXPORT int cbc_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CBC *cbc);
+LTC_EXPORT int cbc_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CBC *cbc);
+LTC_EXPORT int cbc_getiv(unsigned char *IV, unsigned long *len, symmetric_CBC *cbc);
+LTC_EXPORT int cbc_setiv(const unsigned char *IV, unsigned long len, symmetric_CBC *cbc);
+LTC_EXPORT int cbc_done(symmetric_CBC *cbc);
 #endif
 
 #ifdef LTC_CTR_MODE
@@ -860,17 +860,17 @@ int cbc_done(symmetric_CBC *cbc);
 #define CTR_COUNTER_BIG_ENDIAN       0x1000
 #define LTC_CTR_RFC3686              0x2000
 
-int ctr_start(               int   cipher,
+LTC_EXPORT int ctr_start(               int   cipher,
               const unsigned char *IV,
               const unsigned char *key,       int keylen,
                              int  num_rounds, int ctr_mode,
                    symmetric_CTR *ctr);
-int ctr_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CTR *ctr);
-int ctr_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CTR *ctr);
-int ctr_getiv(unsigned char *IV, unsigned long *len, symmetric_CTR *ctr);
-int ctr_setiv(const unsigned char *IV, unsigned long len, symmetric_CTR *ctr);
-int ctr_done(symmetric_CTR *ctr);
-int ctr_test(void);
+LTC_EXPORT int ctr_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_CTR *ctr);
+LTC_EXPORT int ctr_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_CTR *ctr);
+LTC_EXPORT int ctr_getiv(unsigned char *IV, unsigned long *len, symmetric_CTR *ctr);
+LTC_EXPORT int ctr_setiv(const unsigned char *IV, unsigned long len, symmetric_CTR *ctr);
+LTC_EXPORT int ctr_done(symmetric_CTR *ctr);
+LTC_EXPORT int ctr_test(void);
 #endif
 
 #ifdef LTC_LRW_MODE
@@ -878,34 +878,34 @@ int ctr_test(void);
 #define LRW_ENCRYPT LTC_ENCRYPT
 #define LRW_DECRYPT LTC_DECRYPT
 
-int lrw_start(               int   cipher,
+LTC_EXPORT int lrw_start(               int   cipher,
               const unsigned char *IV,
               const unsigned char *key,       int keylen,
               const unsigned char *tweak,
                              int  num_rounds,
                    symmetric_LRW *lrw);
-int lrw_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_LRW *lrw);
-int lrw_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_LRW *lrw);
-int lrw_getiv(unsigned char *IV, unsigned long *len, symmetric_LRW *lrw);
-int lrw_setiv(const unsigned char *IV, unsigned long len, symmetric_LRW *lrw);
-int lrw_done(symmetric_LRW *lrw);
-int lrw_test(void);
+LTC_EXPORT int lrw_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_LRW *lrw);
+LTC_EXPORT int lrw_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_LRW *lrw);
+LTC_EXPORT int lrw_getiv(unsigned char *IV, unsigned long *len, symmetric_LRW *lrw);
+LTC_EXPORT int lrw_setiv(const unsigned char *IV, unsigned long len, symmetric_LRW *lrw);
+LTC_EXPORT int lrw_done(symmetric_LRW *lrw);
+LTC_EXPORT int lrw_test(void);
 
 /* don't call */
 int lrw_process(const unsigned char *pt, unsigned char *ct, unsigned long len, int mode, symmetric_LRW *lrw);
 #endif
 
 #ifdef LTC_F8_MODE
-int f8_start(                int  cipher, const unsigned char *IV,
+LTC_EXPORT int f8_start(                int  cipher, const unsigned char *IV,
              const unsigned char *key,                    int  keylen,
              const unsigned char *salt_key,               int  skeylen,
                              int  num_rounds,   symmetric_F8  *f8);
-int f8_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_F8 *f8);
-int f8_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_F8 *f8);
-int f8_getiv(unsigned char *IV, unsigned long *len, symmetric_F8 *f8);
-int f8_setiv(const unsigned char *IV, unsigned long len, symmetric_F8 *f8);
-int f8_done(symmetric_F8 *f8);
-int f8_test_mode(void);
+LTC_EXPORT int f8_encrypt(const unsigned char *pt, unsigned char *ct, unsigned long len, symmetric_F8 *f8);
+LTC_EXPORT int f8_decrypt(const unsigned char *ct, unsigned char *pt, unsigned long len, symmetric_F8 *f8);
+LTC_EXPORT int f8_getiv(unsigned char *IV, unsigned long *len, symmetric_F8 *f8);
+LTC_EXPORT int f8_setiv(const unsigned char *IV, unsigned long len, symmetric_F8 *f8);
+LTC_EXPORT int f8_done(symmetric_F8 *f8);
+LTC_EXPORT int f8_test_mode(void);
 #endif
 
 #ifdef LTC_XTS_MODE
@@ -937,13 +937,13 @@ int  xts_test(void);
 void xts_mult_x(unsigned char *I);
 #endif
 
-int find_cipher(const char *name);
-int find_cipher_any(const char *name, int blocklen, int keylen);
-int find_cipher_id(unsigned char ID);
-int register_cipher(const struct ltc_cipher_descriptor *cipher);
-int unregister_cipher(const struct ltc_cipher_descriptor *cipher);
-int register_all_ciphers(void);
-int cipher_is_valid(int idx);
+LTC_EXPORT int find_cipher(const char *name);
+LTC_EXPORT int find_cipher_any(const char *name, int blocklen, int keylen);
+LTC_EXPORT int find_cipher_id(unsigned char ID);
+LTC_EXPORT int register_cipher(const struct ltc_cipher_descriptor *cipher);
+LTC_EXPORT int unregister_cipher(const struct ltc_cipher_descriptor *cipher);
+LTC_EXPORT int register_all_ciphers(void);
+LTC_EXPORT int cipher_is_valid(int idx);
 
 LTC_MUTEX_PROTO(ltc_cipher_mutex)
 
@@ -959,13 +959,13 @@ typedef struct {
    int rounds;
 } chacha_state;
 
-int chacha_setup(chacha_state *st, const unsigned char *key, unsigned long keylen, int rounds);
-int chacha_ivctr32(chacha_state *st, const unsigned char *iv, unsigned long ivlen, ulong32 counter);
-int chacha_ivctr64(chacha_state *st, const unsigned char *iv, unsigned long ivlen, ulong64 counter);
-int chacha_crypt(chacha_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
-int chacha_keystream(chacha_state *st, unsigned char *out, unsigned long outlen);
-int chacha_done(chacha_state *st);
-int chacha_test(void);
+LTC_EXPORT int chacha_setup(chacha_state *st, const unsigned char *key, unsigned long keylen, int rounds);
+LTC_EXPORT int chacha_ivctr32(chacha_state *st, const unsigned char *iv, unsigned long ivlen, ulong32 counter);
+LTC_EXPORT int chacha_ivctr64(chacha_state *st, const unsigned char *iv, unsigned long ivlen, ulong64 counter);
+LTC_EXPORT int chacha_crypt(chacha_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
+LTC_EXPORT int chacha_keystream(chacha_state *st, unsigned char *out, unsigned long outlen);
+LTC_EXPORT int chacha_done(chacha_state *st);
+LTC_EXPORT int chacha_test(void);
 
 #endif /* LTC_CHACHA */
 
@@ -976,11 +976,11 @@ typedef struct {
    unsigned char buf[256];
 } rc4_state;
 
-int rc4_stream_setup(rc4_state *st, const unsigned char *key, unsigned long keylen);
-int rc4_stream_crypt(rc4_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
-int rc4_stream_keystream(rc4_state *st, unsigned char *out, unsigned long outlen);
-int rc4_stream_done(rc4_state *st);
-int rc4_stream_test(void);
+LTC_EXPORT int rc4_stream_setup(rc4_state *st, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int rc4_stream_crypt(rc4_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
+LTC_EXPORT int rc4_stream_keystream(rc4_state *st, unsigned char *out, unsigned long outlen);
+LTC_EXPORT int rc4_stream_done(rc4_state *st);
+LTC_EXPORT int rc4_stream_test(void);
 
 #endif /* LTC_RC4_STREAM */
 
@@ -994,12 +994,12 @@ typedef struct {
    int     nbuf;        /* number of part-word stream bits buffered */
 } sober128_state;
 
-int sober128_stream_setup(sober128_state *st, const unsigned char *key, unsigned long keylen);
-int sober128_stream_setiv(sober128_state *st, const unsigned char *iv, unsigned long ivlen);
-int sober128_stream_crypt(sober128_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
-int sober128_stream_keystream(sober128_state *st, unsigned char *out, unsigned long outlen);
-int sober128_stream_done(sober128_state *st);
-int sober128_stream_test(void);
+LTC_EXPORT int sober128_stream_setup(sober128_state *st, const unsigned char *key, unsigned long keylen);
+LTC_EXPORT int sober128_stream_setiv(sober128_state *st, const unsigned char *iv, unsigned long ivlen);
+LTC_EXPORT int sober128_stream_crypt(sober128_state *st, const unsigned char *in, unsigned long inlen, unsigned char *out);
+LTC_EXPORT int sober128_stream_keystream(sober128_state *st, unsigned char *out, unsigned long outlen);
+LTC_EXPORT int sober128_stream_done(sober128_state *st);
+LTC_EXPORT int sober128_stream_test(void);
 
 #endif /* LTC_SOBER128_STREAM */
 

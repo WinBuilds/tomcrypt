@@ -22,8 +22,12 @@
    #define LTC_CALL
 #endif
 
-#ifndef LTC_EXPORT
-   #define LTC_EXPORT
+#ifdef TOMCRYPTDLL_EXPORTS
+#define LTC_EXPORT __declspec(dllexport)
+#elif defined(TOMCRYPTDLL_IMPORTS)
+#define LTC_EXPORT __declspec(dllimport)
+#else
+#define LTC_EXPORT
 #endif
 
 /* certain platforms use macros for these, making the prototypes broken */
